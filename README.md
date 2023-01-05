@@ -1,2 +1,2 @@
 # JavaScriptProject
-I Just add my JSProject Here
+Create Pacman game using canvas and js
