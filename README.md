@@ -1,2 +1,3 @@
 # JavaScriptProject
-Create Pacman game using canvas and js
+
+I am implementing pacman game using canvas and javascript
