@@ -1,4 +1,5 @@
 const canvas = document.querySelector("canvas");
+const scoreElement = document.querySelector("#scoreElement");
 const c = canvas.getContext("2d");
 
 canvas.width = innerWidth;
@@ -63,6 +64,7 @@ const player = new Player({
   velocity: { x: 0, y: 0 },
 });
 let lastkey = "";
+let score = 0;
 const keys = {
   w: { pressed: false },
   d: { pressed: false },
@@ -359,7 +361,7 @@ function animate() {
       }
     }
   }
-
+  // eat pellets
   for (let i = pellets.length - 1; 0 < i; i--) {
     const pellet = pellets[i];
     pellet.drawPellet();
@@ -371,6 +373,8 @@ function animate() {
       pellet.radius + player.radius
     ) {
       pellets.splice(i, 1);
+      score += 10;
+      scoreElement.innerHTML = score;
     }
   }
 

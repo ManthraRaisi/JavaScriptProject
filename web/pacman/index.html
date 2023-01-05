@@ -2,15 +2,18 @@
   body {
     background-color: black;
     margin: 0;
+    overflow: hidden;
   }
   p {
     color: white;
+    font-family: sans-serif;
+    font-size: 20;
+    position: absolute;
+    left: 35%;
   }
 </style>
-<div class="d-flex justify-content-center">
-  <p class="d-flex justify-content-center">
-    <span> score : </span>
-  </p>
-  <canvas class="d-flex justify-content-center"></canvas>
+<p><span> score : </span> <span id="scoreElement">0</span></p>
+<div style="position: absolute !important; left: 35% !important ; top: 3%">
+  <canvas></canvas>
   <script src="index.js"></script>
 </div>
