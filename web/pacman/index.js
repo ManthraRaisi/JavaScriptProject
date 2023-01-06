@@ -80,7 +80,7 @@ const boundaries = [];
 const ghosts = [
   new Ghost({
     position: {
-      x: Boundary.width + Boundary.width / 2,
+      x: Boundary.width * 6 + Boundary.width / 2,
       y: Boundary.height + Boundary.height / 2,
     },
     velocity: {
@@ -427,6 +427,45 @@ function animate() {
   player.updatePlayer();
   ghosts.forEach((ghost) => {
     ghost.updateGhost();
+    const collisions = [];
+    boundaries.forEach((boundery) => {
+      if (
+        collisions.includes("right") &&
+        circleCollidesWithRect({
+          circle: { ...ghost, velocity: { x: 5, y: 0 } },
+          rec: boundery,
+        })
+      ) {
+        collisions.push("right");
+      }
+
+      if (
+        circleCollidesWithRect({
+          circle: { ...ghost, velocity: { x: -5, y: 0 } },
+          rec: boundery,
+        })
+      ) {
+        collisions.push("left");
+      }
+      if (
+        circleCollidesWithRect({
+          circle: { ...ghost, velocity: { x: 0, y: -5 } },
+          rec: boundery,
+        })
+      ) {
+        collisions.push("up");
+      }
+
+      if (
+        circleCollidesWithRect({
+          circle: { ...ghost, velocity: { x: 0, y: 5 } },
+          rec: boundery,
+        })
+      ) {
+        collisions.push("down");
+      }
+    });
+    console.log(collisions);
   });
 }
 animate();
