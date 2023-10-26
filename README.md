@@ -1,3 +1,3 @@
 # JavaScriptProject
 
-I am implementing pacman game using canvas and javascript
+I am implementing JS Challenges
